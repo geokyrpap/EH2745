@@ -1,0 +1,49 @@
+public class FooCorporation {
+public static void main(String[] args) {
+// Employee John
+Employee john = new Employee("John", 7.5, 38);
+// Employee Annabel
+Employee annabel = new Employee("Annabel", 8.2, 42);
+// Employee Graham
+Employee graham = new Employee("Graham", 10.5, 41);
+// Manager Bill
+Manager bill = new Manager("Bill", 15.5, 39, "A332");
+// Manager Gregory
+Manager gregory = new Manager("Gregory", 18.2, 40, "A415");
+john.salary();
+annabel.salary();
+graham.salary();
+bill.salary();
+gregory.salary();
+bill.office();
+gregory.office();
+}
+}
+public class Employee {
+String name;
+double basePay;
+int hoursWorked;
+Employee(String name, double basePay, int hoursWorked){
+this.name = name;
+this.basePay = basePay;
+this.hoursWorked = hoursWorked;
+}
+void salary(){
+double salary;
+salary = basePay*hoursWorked;
+System.out.printf("%s earned %.02f dollars. \n", name, salary);
+}
+}
+public class Manager extends Employee {
+String officeNumber;
+Manager(String name, double basePay, int hoursWorked, String
+officeNumber){
+super(name, basePay, hoursWorked);
+this.officeNumber = officeNumber;
+}
+public void office(){
+// New method to print office number
+System.out.printf("%s works in %s office. \n", super.name,
+officeNumber);
+}
+}

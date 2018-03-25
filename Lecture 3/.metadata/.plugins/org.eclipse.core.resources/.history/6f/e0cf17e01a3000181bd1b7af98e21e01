@@ -1,0 +1,46 @@
+public class FooCorporation {
+public static void main(String[] args) {
+Employee John = new Employee("John",7.5,38);
+Employee Annabel = new Employee("Annabel",8.2,42);
+Employee Graham = new Employee("Graham",10.5,41);
+Manager Bill=new Manager("Bill",15.5,39,"A332");
+Manager Gregory=new Manager("Gregory",18.2,40,"A415");
+John.salary();
+Annabel.salary();
+Graham.salary();
+Bill.salary();
+Bill.Office();
+Gregory.salary();
+Gregory.Office();
+}
+}
+public class Employee {
+	String name; 
+	double BasePay;
+	int Whours;
+	Employee(String name, double BasePay,int Whours)
+	{
+		this.name=name;
+		this.BasePay=BasePay;
+		this.Whours=Whours;
+	}
+	void salary()
+	{// Define method “salary”
+	double salary=BasePay*Whours;
+	System.out.printf("%s earned %.02f dollars. \n", name, salary);
+	}
+}
+public class Manager extends Employee {
+// Create a constructor for the class with an additional field officeNumber
+	String OfficeN;
+	Manager(String name, double BasePay,int Whours, String OfficeN)
+	{
+		super(name,BasePay,Whours);
+		this.OfficeN=OfficeN;
+	}	
+	public void Office() 
+	{
+		System.out.printf("Manager %s is in  Offie %s. \n", super.name, OfficeN);
+	}
+}
+}
